@@ -1,5 +1,5 @@
 # SramComparer.SoE.DemoApp
-Console app for demonstration purpose to controll SramComparer (SoE)
+Console app for demonstrating the control of Sram Comparer (SoE)
 
 ## How to run
 This Project is based on .net 5 runtime.
