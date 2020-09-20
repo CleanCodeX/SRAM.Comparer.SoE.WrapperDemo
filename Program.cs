@@ -2,12 +2,15 @@
 using System.Diagnostics;
 using System.IO;
 using App.Commons.Extensions;
-using SramComparer.SoE.Helpers;
+using SramComparer.Services;
 
 namespace SramComparer.SoE.DemoApp
 {
     internal class Program
     {
+        private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
+        private static ICommandExecutor CommandExecutor => ServiceCollection.CommandExecutor!;
+
         private static void Main(string[] args)
         {
             if (args.Length < 2)
@@ -19,7 +22,7 @@ namespace SramComparer.SoE.DemoApp
             Console.WriteLine("Arguments:");
             Console.WriteLine($"{{0}}: {exeFilepath}");
             Console.WriteLine($"{{1}}: {currentGameFilepath}");
-            
+
             var result = true;
             while (result)
             {
@@ -45,10 +48,7 @@ namespace SramComparer.SoE.DemoApp
                 }
                 catch (Exception ex)
                 {
-                    Console.BackgroundColor = ConsoleColor.DarkRed;
-                    Console.ForegroundColor = ConsoleColor.Yellow;
-                    Console.WriteLine("ERROR: " + ex.Message);
-                    Console.ResetColor();
+                    ConsolePrinter.PrintFatalError(ex.Message);
                 }
             }
         }
@@ -76,7 +76,7 @@ namespace SramComparer.SoE.DemoApp
 
             Debug.Assert(File.Exists(exeFilepath));
 
-            var result = CommandHelper.RunCommand(command, options, Console.Out);
+            var result = CommandExecutor.RunCommand(command, options, Console.Out);
             Console.ReadLine();
 
             return result;
@@ -139,7 +139,7 @@ namespace SramComparer.SoE.DemoApp
             static void ErrorHandler(object sendingProcess, DataReceivedEventArgs outLine)
             {
                 var data = outLine.Data;
-                Console.WriteLine($"ERROR: {data}");
+                ConsolePrinter.PrintError(data!);
             }
         }
     }
