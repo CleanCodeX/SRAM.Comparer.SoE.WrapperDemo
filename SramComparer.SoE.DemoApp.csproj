@@ -28,4 +28,13 @@
     <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-g" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="SramComparer.SoE.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="SramComparer.SoE.runtimeconfig.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
