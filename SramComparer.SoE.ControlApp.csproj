@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -8,7 +8,7 @@
     <Version>0.1.1</Version>
     <Authors>XETH</Authors>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.DemoApp</RepositoryUrl>
+    <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.ControlApp</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>
@@ -25,15 +25,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-g" />
+    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-i" />
   </ItemGroup>
 
   <ItemGroup>
     <None Update="SramComparer.SoE.exe">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="SramComparer.SoE.runtimeconfig.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

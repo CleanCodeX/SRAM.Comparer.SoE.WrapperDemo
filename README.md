@@ -1,4 +1,4 @@
-# SramComparer.SoE.DemoApp
+# SramComparer.SoE.ControlApp
 Console app for demonstrating the control of Sram Comparer (SoE)
 
 ## How to run

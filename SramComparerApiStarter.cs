@@ -3,11 +3,11 @@ using System.Diagnostics;
 using System.IO;
 using SramComparer.Services;
 
-namespace SramComparer.SoE.DemoApp
+namespace SramComparer.SoE.ControlApp
 {
-    internal class SramComparerNetStarter
+    internal class SramComparerApiStarter
     {
-        private static ICommandExecutor CommandExecutor => ServiceCollection.CommandExecutor!;
+        private static ICommandHandler CommandExecutor => ServiceCollection.CommandHandler!;
 
         internal static bool Start(string currentGameFilepath, string? commands = null)
         {
@@ -21,7 +21,6 @@ namespace SramComparer.SoE.DemoApp
             }
             
             var result = SoE.Program.Main(args);
-            Console.ReadLine();
 
             return result == 0;
         }

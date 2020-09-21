@@ -4,7 +4,7 @@ using System.IO;
 using SramComparer.Services;
 using SramComparer.SoE.Enums;
 
-namespace SramComparer.SoE.DemoApp
+namespace SramComparer.SoE.ControlApp
 {
     internal static class SramComparerCmdStarter
     {
@@ -12,7 +12,7 @@ namespace SramComparer.SoE.DemoApp
 
         public static bool Start(string exeFilepath, string currentGameFilepath, string? commands = null)
         {
-            var arguments = currentGameFilepath;
+            var arguments = $@"""{currentGameFilepath}""";
             if (commands is not null)
                 arguments += $@"--cmd ""{commands}""";
 

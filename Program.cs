@@ -2,7 +2,7 @@
 using App.Commons.Extensions;
 using SramComparer.Services;
 
-namespace SramComparer.SoE.DemoApp
+namespace SramComparer.SoE.ControlApp
 {
     internal class Program
     {
@@ -26,7 +26,7 @@ namespace SramComparer.SoE.DemoApp
                 Console.WriteLine();
                 Console.WriteLine("=".Repeat(100));
                 Console.WriteLine("Enter starting method:");
-                Console.WriteLine("1: via .NET");
+                Console.WriteLine("1: via .NET Api");
                 Console.WriteLine("2: via Cmd");
                 Console.WriteLine("q: quit");
 
@@ -36,7 +36,7 @@ namespace SramComparer.SoE.DemoApp
                 {
                     result = key switch
                     {
-                        "1" => SramComparerNetStarter.Start(currentGameFilepath),
+                        "1" => SramComparerApiStarter.Start(currentGameFilepath),
                         "2" => SramComparerCmdStarter.Start(exeFilepath, currentGameFilepath),
                         "q" => false,
                         // ReSharper disable once UnreachableSwitchArmDueToIntegerAnalysis
