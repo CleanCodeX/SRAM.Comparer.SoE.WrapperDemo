@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using SramComparer.Services;
 
-namespace SramComparer.SoE.ControlApp
+namespace SramComparer.SoE.WrapperApp
 {
     internal class SramComparerApiStarter
     {

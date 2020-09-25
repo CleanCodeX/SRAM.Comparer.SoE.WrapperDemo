@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-i" />
+    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-n" />
   </ItemGroup>
 
   <ItemGroup>

@@ -2,7 +2,7 @@
 using App.Commons.Extensions;
 using SramComparer.Services;
 
-namespace SramComparer.SoE.ControlApp
+namespace SramComparer.SoE.WrapperApp
 {
     internal class Program
     {

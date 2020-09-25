@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30428.66
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SramComparer.SoE.ControlApp", "SramComparer.SoE.ControlApp.csproj", "{8D11C296-B595-46DA-A069-0519CC13A405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SramComparer.SoE.WrapperApp", "SramComparer.SoE.WrapperApp.csproj", "{8D11C296-B595-46DA-A069-0519CC13A405}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

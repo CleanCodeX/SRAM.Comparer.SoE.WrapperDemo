@@ -4,7 +4,7 @@ using System.IO;
 using SramComparer.Services;
 using SramComparer.SoE.Enums;
 
-namespace SramComparer.SoE.ControlApp
+namespace SramComparer.SoE.WrapperApp
 {
     internal static class SramComparerCmdStarter
     {
