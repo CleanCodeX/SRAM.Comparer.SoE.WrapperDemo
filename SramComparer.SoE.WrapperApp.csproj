@@ -7,10 +7,10 @@
     <LangVersion>preview</LangVersion>
     <Version>0.1.1</Version>
     <Authors>XETH</Authors>
-    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.ControlApp</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,14 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="LICENSE.txt">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.0-n" />
+    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.1-b" />
   </ItemGroup>
 
   <ItemGroup>
