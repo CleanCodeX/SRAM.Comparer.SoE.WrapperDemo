@@ -6,11 +6,12 @@
     <Nullable>enable</Nullable>
     <LangVersion>preview</LangVersion>
     <Version>0.1.1</Version>
-    <Authors>XETH</Authors>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.ControlApp</RepositoryUrl>
+    <Authors>CleanCodeX</Authors>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.WrapperApp</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/CleanCodeX</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Snes.SramComparer.SoE" Version="0.2.1-b" />
+    <PackageReference Include="CCX.SramComparer.SoE" Version="0.2.1" />
   </ItemGroup>
 
   <ItemGroup>
