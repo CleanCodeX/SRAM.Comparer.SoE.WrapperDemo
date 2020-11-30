@@ -15,11 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove=".gitignore" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Properties\" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CCX.SramComparer.SoE" Version="0.2.2" />
+    <PackageReference Include="CCX.SramComparer.SoE" Version="0.2.3-a9" />
   </ItemGroup>
 
   <ItemGroup>
