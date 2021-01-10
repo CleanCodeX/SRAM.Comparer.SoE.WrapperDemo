@@ -1,8 +1,8 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using SramComparer.Enums;
 using SramComparer.Services;
-using SramComparer.SoE.Enums;
 
 namespace SramComparer.SoE.WrapperApp
 {
@@ -10,17 +10,17 @@ namespace SramComparer.SoE.WrapperApp
 	{
 		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
 
-		public static bool Start(string exeFilepath, string currentGameFilepath, string? commands = null)
+		public static bool Start(string exeFilePath, string currentFilePath, string? commands = null)
 		{
-			var arguments = $@"""{currentGameFilepath}""";
+			var arguments = $@"""{currentFilePath}""";
 			if (commands is not null)
 				arguments += $@"--cmd ""{commands}""";
 
-			Debug.Assert(File.Exists(exeFilepath));
+			Debug.Assert(File.Exists(exeFilePath));
 
 			var process = new Process
 			{
-				StartInfo = new ProcessStartInfo(exeFilepath)
+				StartInfo = new ProcessStartInfo(exeFilePath)
 				{
 					Arguments = arguments,
 					RedirectStandardOutput = true,
@@ -42,7 +42,7 @@ namespace SramComparer.SoE.WrapperApp
 				try
 				{
 					var input = Console.ReadLine();
-					if (input == nameof(Commands.q)) break;
+					if (input == nameof(Commands.Quit)) break;
 
 					process.StandardInput.WriteLine(input);
 				}

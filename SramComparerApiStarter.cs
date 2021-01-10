@@ -25,11 +25,11 @@ namespace SramComparer.SoE.WrapperApp
 			return result == 0;
 		}
 
-		internal static bool RunSingleSramComparerCommandNet(string exeFilepath, string currentGameFilepath, string command)
+		internal static bool RunSingleSramComparerCommandNet(string exeFilePath, string currentFilePath, string command)
 		{
-			var options = new Options { CurrentGameFilepath = currentGameFilepath};
+			var options = new Options { CurrentFilePath = currentFilePath};
 
-			Debug.Assert(File.Exists(exeFilepath));
+			Debug.Assert(File.Exists(exeFilePath));
 
 			var result = CommandExecutor.RunCommand(command, options, Console.Out);
 			Console.ReadLine();

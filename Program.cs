@@ -38,6 +38,7 @@ namespace SramComparer.SoE.WrapperApp
 					{
 						"1" => SramComparerApiStarter.Start(currentGameFilepath),
 						"2" => SramComparerCmdStarter.Start(exeFilepath, currentGameFilepath),
+						"quit" => false,
 						"q" => false,
 						// ReSharper disable once UnreachableSwitchArmDueToIntegerAnalysis
 						_ => true

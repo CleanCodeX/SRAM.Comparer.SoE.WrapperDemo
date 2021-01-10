@@ -5,13 +5,15 @@
     <TargetFramework>net5.0</TargetFramework>
     <Nullable>enable</Nullable>
     <LangVersion>preview</LangVersion>
-    <Version>0.1.1</Version>
-    <Authors>CleanCodeX</Authors>
+    <Version>0.1.2</Version>
+    <Authors>CleanCoderX</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/CleanCodeX/SramComparer.SoE.WrapperApp</RepositoryUrl>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/CleanCodeX</PackageProjectUrl>
+    <Company>KST</Company>
+    <Description>Demo Console app how to wrap the SRAM Comparer console app</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +25,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CCX.SramComparer.SoE" Version="0.2.3-a9" />
+    <PackageReference Include="CCX.SramComparer.SoE" Version="0.3.0-a5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SramComparer.SoE\SramComparer.SoE.csproj" />
   </ItemGroup>
 
   <ItemGroup>
