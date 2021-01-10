@@ -1,6 +1,8 @@
 using System;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using Common.Shared.Min.Extensions;
 using SramComparer.Enums;
 using SramComparer.Services;
 
@@ -10,19 +12,15 @@ namespace SramComparer.SoE.WrapperApp
 	{
 		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
 
-		public static bool Start(string exeFilePath, string currentFilePath, string? commands = null)
+		public static bool Start(string exeFilePath, string[] args)
 		{
-			var arguments = $@"""{currentFilePath}""";
-			if (commands is not null)
-				arguments += $@" --batch-cmds ""{commands}""";
-
 			Debug.Assert(File.Exists(exeFilePath));
 
 			var process = new Process
 			{
 				StartInfo = new ProcessStartInfo(exeFilePath)
 				{
-					Arguments = arguments,
+					Arguments = args.Select(e => $@"""{e}""").Join(" "),
 					RedirectStandardOutput = true,
 					RedirectStandardError = true,
 					RedirectStandardInput = true,

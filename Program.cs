@@ -10,15 +10,11 @@ namespace SramComparer.SoE.WrapperApp
 		
 		private static void Main(string[] args)
 		{
-			if (args.Length < 2)
-				Array.Resize(ref args, 2);
-
-			var exeFilepath = args[0];
-			var currentGameFilepath = args[1];
-
 			Console.WriteLine("Arguments:");
-			Console.WriteLine($"{{0}}: {exeFilepath}");
-			Console.WriteLine($"{{1}}: {currentGameFilepath}");
+			Console.WriteLine($"{{0}}: {args[0]}");
+
+			if(args.Length > 1)
+				Console.WriteLine($"CMD: {args[1..].Join(" ")}");
 
 			var result = true;
 			while (result)
@@ -36,8 +32,8 @@ namespace SramComparer.SoE.WrapperApp
 				{
 					result = key switch
 					{
-						"1" => SramComparerApiStarter.Start(currentGameFilepath),
-						"2" => SramComparerCmdStarter.Start(exeFilepath, currentGameFilepath),
+						"1" => SramComparerApiStarter.Start(args[1..]),
+						"2" => SramComparerCmdStarter.Start(args[0], args[1..]),
 						"quit" => false,
 						"q" => false,
 						// ReSharper disable once UnreachableSwitchArmDueToIntegerAnalysis

@@ -9,17 +9,8 @@ namespace SramComparer.SoE.WrapperApp
 	{
 		private static ICommandHandler CommandExecutor => ServiceCollection.CommandHandler!;
 
-		internal static bool Start(string currentGameFilepath, string? commands = null)
-		{
-			var args = new string[1];
-			args[0] = currentGameFilepath;
-
-			if (commands is not null)
-			{
-				Array.Resize(ref args, 2);
-				args[1] = $@" --batch-cmds ""{commands}""";
-			}
-			
+		internal static bool Start(string[] args)
+		{ 
 			var result = SoE.Program.Main(args);
 
 			return result == 0;
