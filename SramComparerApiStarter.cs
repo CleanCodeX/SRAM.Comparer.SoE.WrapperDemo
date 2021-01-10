@@ -17,7 +17,7 @@ namespace SramComparer.SoE.WrapperApp
 			if (commands is not null)
 			{
 				Array.Resize(ref args, 2);
-				args[1] = $@" --cmd ""{commands}""";
+				args[1] = $@" --batch-cmds ""{commands}""";
 			}
 			
 			var result = SoE.Program.Main(args);

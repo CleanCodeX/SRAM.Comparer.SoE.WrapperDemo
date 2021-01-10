@@ -14,7 +14,7 @@ namespace SramComparer.SoE.WrapperApp
 		{
 			var arguments = $@"""{currentFilePath}""";
 			if (commands is not null)
-				arguments += $@"--cmd ""{commands}""";
+				arguments += $@" --batch-cmds ""{commands}""";
 
 			Debug.Assert(File.Exists(exeFilePath));
 
