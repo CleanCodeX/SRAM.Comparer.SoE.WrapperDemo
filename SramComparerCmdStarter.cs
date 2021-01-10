@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Common.Shared.Min.Extensions;
-using SramComparer.Enums;
 using SramComparer.Services;
 
 namespace SramComparer.SoE.WrapperApp
@@ -41,10 +40,11 @@ namespace SramComparer.SoE.WrapperApp
 				{
 					try
 					{
-						var input = Console.ReadLine();
-						if (input.EqualsInsensitive(nameof(Commands.Quit))) break;
+						var key = Console.ReadLine()!.ToLower();
+						if (key == "q" || key == "quit")
+							break;
 
-						process.StandardInput.WriteLine(input);
+						process.StandardInput.WriteLine(key);
 					}
 					catch (IOException ex)
 					{

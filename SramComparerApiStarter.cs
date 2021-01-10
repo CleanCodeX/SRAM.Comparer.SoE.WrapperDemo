@@ -9,12 +9,7 @@ namespace SramComparer.SoE.WrapperApp
 	{
 		private static ICommandHandler CommandExecutor => ServiceCollection.CommandHandler!;
 
-		public static bool Start(string[] args)
-		{ 
-			var result = SoE.Program.Main(args);
-
-			return result == 0;
-		}
+		public static bool Start(string[] args) => SoE.Program.Main(args) == 0;
 
 		public static bool RunCommand(string exeFilePath, string currentFilePath, string command, TextWriter? output = null)
 		{

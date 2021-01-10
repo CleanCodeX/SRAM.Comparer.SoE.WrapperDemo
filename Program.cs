@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Drawing;
 using Common.Shared.Min.Extensions;
+using SramComparer.Extensions;
+using SramComparer.Helpers;
 using SramComparer.Services;
+using SramComparer.SoE.Services;
 
 namespace SramComparer.SoE.WrapperApp
 {
@@ -10,41 +14,65 @@ namespace SramComparer.SoE.WrapperApp
 		
 		private static void Main(string[] args)
 		{
-			Console.WriteLine("Arguments:");
-			Console.WriteLine($"{{0}}: {args[0]}");
+			var options = new CmdLineParserSoE().Parse(args[1..]);
 
-			if(args.Length > 1)
-				Console.WriteLine($"CMD: {args[1..].Join(" ")}");
+			Initialize(options);
 
-			var result = true;
-			while (result)
+			PrintParams(args, options);
+
+			while (true)
 			{
-				Console.WriteLine();
-				Console.WriteLine("=".Repeat(100));
-				Console.WriteLine("Enter starting method:");
-				Console.WriteLine("1: via .NET Api");
-				Console.WriteLine("2: via Cmd");
-				Console.WriteLine("q: quit");
+				PrintHelp();
 
-				var key = Console.ReadLine();
+				var key = Console.ReadLine()!.ToLower();
+				if (key == "q" || key == "quit")
+					break;
 
 				try
 				{
-					result = key switch
+					var result = key switch
 					{
 						"1" => SramComparerApiStarter.Start(args[1..]),
 						"2" => SramComparerCmdStarter.Start(args[0], args[1..]),
-						"quit" => false,
-						"q" => false,
 						// ReSharper disable once UnreachableSwitchArmDueToIntegerAnalysis
 						_ => true
 					};
+
+					if (!result)
+						break;
 				}
 				catch (Exception ex)
 				{
 					ConsolePrinter.PrintFatalError(ex.Message);
 				}
 			}
+		}
+
+		private static void PrintParams(string[] args, IOptions options)
+		{
+			ConsolePrinter.PrintSectionHeader("Arguments");
+			ConsolePrinter.PrintConfigLine("Current file", "{0}", @$"""{options.CurrentFilePath}""");
+			ConsolePrinter.PrintConfigLine("Other params for SRAM-Comparer", args[1..].Join(" "));
+			ConsolePrinter.ResetColor();
+		}
+
+		private static void PrintHelp()
+		{
+			ConsolePrinter.PrintSectionHeader("Enter starting method");
+			ConsolePrinter.PrintConfigLine("Quit [Q]", "Quit the app");
+			ConsolePrinter.PrintConfigLine("1", "via .NET Api");
+			ConsolePrinter.PrintConfigLine("2", "via Cmd");
+			ConsolePrinter.PrintLine();
+			ConsolePrinter.ResetColor();
+		}
+
+		private static void Initialize(IOptions options)
+		{
+			PaletteHelper.SetScreenColors(Color.White, Color.FromArgb(17, 17, 17));
+			Console.Clear();
+
+			if (options.UILanguage is not null)
+				CultureHelper.TrySetCulture(options.UILanguage);
 		}
 	}
 }
