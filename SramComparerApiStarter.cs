@@ -5,24 +5,24 @@ using SramComparer.Services;
 
 namespace SramComparer.SoE.WrapperApp
 {
-	internal class SramComparerApiStarter
+	public class SramComparerApiStarter
 	{
 		private static ICommandHandler CommandExecutor => ServiceCollection.CommandHandler!;
 
-		internal static bool Start(string[] args)
+		public static bool Start(string[] args)
 		{ 
 			var result = SoE.Program.Main(args);
 
 			return result == 0;
 		}
 
-		internal static bool RunSingleSramComparerCommandNet(string exeFilePath, string currentFilePath, string command)
+		public static bool RunCommand(string exeFilePath, string currentFilePath, string command, TextWriter? output = null)
 		{
 			var options = new Options { CurrentFilePath = currentFilePath};
 
 			Debug.Assert(File.Exists(exeFilePath));
 
-			var result = CommandExecutor.RunCommand(command, options, Console.Out);
+			var result = CommandExecutor.RunCommand(command, options, output ?? Console.Out);
 			Console.ReadLine();
 
 			return result;

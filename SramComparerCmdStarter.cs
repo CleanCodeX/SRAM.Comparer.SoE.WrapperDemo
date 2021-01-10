@@ -8,11 +8,11 @@ using SramComparer.Services;
 
 namespace SramComparer.SoE.WrapperApp
 {
-	internal static class SramComparerCmdStarter
+	public static class SramComparerCmdStarter
 	{
 		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
 
-		public static bool Start(string exeFilePath, string[] args)
+		public static bool Start(string exeFilePath, string[] args, TextWriter? output = null)
 		{
 			Debug.Assert(File.Exists(exeFilePath));
 
@@ -35,22 +35,25 @@ namespace SramComparer.SoE.WrapperApp
 			process.BeginOutputReadLine();
 			process.BeginErrorReadLine();
 
-			while (true)
+			using (new TemporaryOutputSetter(output))
 			{
-				try
+				while (true)
 				{
-					var input = Console.ReadLine();
-					if (input == nameof(Commands.Quit)) break;
+					try
+					{
+						var input = Console.ReadLine();
+						if (input.EqualsInsensitive(nameof(Commands.Quit))) break;
 
-					process.StandardInput.WriteLine(input);
-				}
-				catch (IOException ex)
-				{
-					ConsolePrinter.PrintError(ex.Message);
-				}
-				catch (Exception ex)
-				{
-					ConsolePrinter.PrintError(ex);
+						process.StandardInput.WriteLine(input);
+					}
+					catch (IOException ex)
+					{
+						ConsolePrinter.PrintError(ex.Message);
+					}
+					catch (Exception ex)
+					{
+						ConsolePrinter.PrintError(ex);
+					}
 				}
 			}
 
@@ -67,6 +70,20 @@ namespace SramComparer.SoE.WrapperApp
 				var data = outLine.Data;
 				ConsolePrinter.PrintError(data!);
 			}
+		}
+
+		private class TemporaryOutputSetter : IDisposable
+		{
+			private readonly TextWriter _oldOut = Console.Out;
+
+			public TemporaryOutputSetter(TextWriter? output)
+			{
+				if (output is null) return;
+
+				Console.SetOut(output);
+			}
+
+			public void Dispose() => Console.SetOut(_oldOut);
 		}
 	}
 }
