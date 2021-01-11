@@ -5,9 +5,9 @@ using System.Linq;
 using Common.Shared.Min.Extensions;
 using SramComparer.Services;
 
-namespace SramComparer.SoE.WrapperApp
+namespace SramComparer.SoE.WrapperApp.Helpers
 {
-	public static class SramComparerCmdStarter
+	public static class CmdLineStarter
 	{
 		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
 
