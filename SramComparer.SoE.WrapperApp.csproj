@@ -12,7 +12,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <Company>KST</Company>
-    <Description>Demo Console app how to wrap the SRAM Comparer console app</Description>
+    <Description>Demo app how to wrap the S-RAM Comparer console app</Description>
   </PropertyGroup>
 
   <ItemGroup>
@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="CCX.SramComparer.SoE" Version="0.3.0-a7" />
+    <PackageReference Include="CCX.SramComparer.SoE" Version="0.3.1-a1" />
   </ItemGroup>
 
   <ItemGroup>
