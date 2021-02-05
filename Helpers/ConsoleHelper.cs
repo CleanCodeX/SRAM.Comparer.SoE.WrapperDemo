@@ -2,15 +2,15 @@
 using System.Drawing;
 using System.Linq;
 using Common.Shared.Min.Extensions.Specialized;
-using SramComparer.Extensions;
-using SramComparer.Helpers;
-using SramComparer.Services;
+using SRAM.Comparison.Extensions;
+using SRAM.Comparison.Helpers;
+using SRAM.Comparison.Services;
 
-namespace SramComparer.SoE.WrapperApp.Helpers
+namespace SRAM.Comparison.SoE.WrapperDemo.Helpers
 {
 	public static class ConsoleHelper
 	{
-		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
+		private static IConsolePrinter ConsolePrinter => ComparisonServices.ConsolePrinter;
 
 		public static void Initialize(IOptions options)
 		{
@@ -32,6 +32,7 @@ namespace SramComparer.SoE.WrapperApp.Helpers
 		public static void PrintHelp()
 		{
 			ConsolePrinter.PrintSectionHeader("Commands");
+			ConsolePrinter.PrintConfigLine("?", "This help");
 			ConsolePrinter.PrintConfigLine("Quit [Q]", "Quit the app");
 			ConsolePrinter.PrintConfigLine("1", "via .NET Api");
 			ConsolePrinter.PrintConfigLine("2", "via Cmd Line");

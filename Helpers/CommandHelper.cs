@@ -1,12 +1,12 @@
 ﻿using System;
-using SramComparer.Enums;
-using SramComparer.Services;
+using SRAM.Comparison.Enums;
+using SRAM.Comparison.Services;
 
-namespace SramComparer.SoE.WrapperApp.Helpers
+namespace SRAM.Comparison.SoE.WrapperDemo.Helpers
 {
 	public class CommandHelper
 	{
-		private static ICommandHandler CommandHandler => ServiceCollection.CommandHandler!;
+		private static ICommandHandler CommandHandler => ComparisonServices.CommandHandler!;
 
 		public static bool Start(string[] args) => SoE.Program.Main(args) == 0;
 

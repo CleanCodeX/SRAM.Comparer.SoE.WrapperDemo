@@ -1,13 +1,13 @@
 ﻿using System;
-using SramComparer.Services;
-using SramComparer.SoE.Services;
-using SramComparer.SoE.WrapperApp.Helpers;
+using SRAM.Comparison.Services;
+using SRAM.Comparison.SoE.Services;
+using SRAM.Comparison.SoE.WrapperDemo.Helpers;
 
-namespace SramComparer.SoE.WrapperApp
+namespace SRAM.Comparison.SoE.WrapperDemo
 {
 	internal class Program
 	{
-		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
+		private static IConsolePrinter ConsolePrinter => ComparisonServices.ConsolePrinter;
 		
 		private static void Main(string[] args)
 		{
@@ -23,7 +23,7 @@ namespace SramComparer.SoE.WrapperApp
 				if (key == "q" || key == "quit")
 					break;
 
-				if (key == "??")
+				if (key == "?")
 				{
 					ConsoleHelper.PrintHelp();
 					continue;
@@ -38,6 +38,8 @@ namespace SramComparer.SoE.WrapperApp
 						// ReSharper disable once UnreachableSwitchArmDueToIntegerAnalysis
 						_ => true
 					};
+
+					ConsoleHelper.PrintHelp();
 
 					if (!result)
 						break;

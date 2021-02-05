@@ -3,13 +3,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Common.Shared.Min.Extensions;
-using SramComparer.Services;
+using SRAM.Comparison.Services;
 
-namespace SramComparer.SoE.WrapperApp.Helpers
+namespace SRAM.Comparison.SoE.WrapperDemo.Helpers
 {
 	public static class CmdLineStarter
 	{
-		private static IConsolePrinter ConsolePrinter => ServiceCollection.ConsolePrinter;
+		private static IConsolePrinter ConsolePrinter => ComparisonServices.ConsolePrinter;
 
 		public static bool Start(string exeFilePath, string[] args, TextWriter? output = null)
 		{
