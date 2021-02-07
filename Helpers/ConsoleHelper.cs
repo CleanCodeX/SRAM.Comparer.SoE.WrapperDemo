@@ -35,7 +35,7 @@ namespace SRAM.Comparison.SoE.WrapperDemo.Helpers
 			ConsolePrinter.PrintConfigLine("?", "This help");
 			ConsolePrinter.PrintConfigLine("Quit [Q]", "Quit the app");
 			ConsolePrinter.PrintConfigLine("1", "via .NET Api");
-			ConsolePrinter.PrintConfigLine("2", "via Cmd Line");
+			ConsolePrinter.PrintConfigLine("2", "via Cmd Line (currently not working)");
 			ConsolePrinter.PrintLine();
 			ConsolePrinter.ResetColor();
 		}
